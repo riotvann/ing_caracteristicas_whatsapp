@@ -3,6 +3,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from loguru import logger
 
+import yaml
+
 # Load environment variables from .env file if it exists
 load_dotenv()
 
@@ -21,6 +23,14 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
+
+PARAMS_FILE = PROJ_ROOT / "params.yml"
+
+
+def load_params() -> dict:
+    with PARAMS_FILE.open() as file:
+        return yaml.safe_load(file)
+
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
 try:
@@ -30,3 +40,5 @@ try:
     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
 except ModuleNotFoundError:
     pass
+
+

@@ -4,7 +4,7 @@
 
 PROJECT_NAME = ing_caracteristicas_whatsapp
 PYTHON_VERSION = 3.10
-PYTHON_INTERPRETER = python
+PYTHON_INTERPRETER = uv run python
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -81,3 +81,11 @@ export PRINT_HELP_PYSCRIPT
 
 help:
 	@$(PYTHON_INTERPRETER) -c "${PRINT_HELP_PYSCRIPT}" < $(MAKEFILE_LIST)
+
+.PHONY: download-chat
+download-chat: 
+	$(PYTHON_INTERPRETER) -m grupo_whatsapp.jobs.download_job
+
+.PHONY: process-chat
+process-chat:
+	$(PYTHON_INTERPRETER) -m grupo_whatsapp.jobs.process_chat_job

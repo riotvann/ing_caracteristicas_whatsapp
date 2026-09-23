@@ -25,6 +25,7 @@ dependencies = [
     "pandas",
     "pip",
     "python-dotenv",
+    "pyyaml>=6.0.3",
     "ruff",
     "scikit-learn",
     "tqdm",

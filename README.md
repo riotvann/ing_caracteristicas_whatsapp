@@ -6,7 +6,9 @@
 
 Proyecto para la clase de Ingeniería de Características
 
-## Project Organization
+El notebook ejecutado se encuentra en notebooks/00-job-whats-data-analysis.ipynb
+
+## Project Organizations
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
